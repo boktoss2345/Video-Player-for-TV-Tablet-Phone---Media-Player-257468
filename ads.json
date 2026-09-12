@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "enabled": true,
-  "initialDelaySeconds": 5,
+  "initialDelaySeconds": 50000,
   "showDurationSeconds": 20,
   "repeatEverySeconds": 10,
   "countdown": {
