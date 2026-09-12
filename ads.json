@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "enabled": true,
+  "initialDelaySeconds": 5,
+  "showDurationSeconds": 20,
+  "repeatEverySeconds": 10,
+  "countdown": {
+    "enabled": true,
+    "seconds": 20,
+    "autoCloseAtZero": true
+  },
+  "behavior": {
+    "selectionMode": "sequence",
+    "refreshConfigBeforeShow": true
+  },
+  "overlay": {
+    "enabled": true,
+    "scrimColor": "#D1000000",
+    "dismissOnOutsideTap": false,
+    "gravity": "center",
+    "paddingDp": 0
+  },
+  "ads": [
+    {
+      "id": "capcut_image_01",
+      "enabled": true,
+      "elements": [
+        {
+          "type": "image",
+          "enabled": true,
+          "src": "https://boktoss2345.github.io/Cap-Video-Editor-Make-Video-Maker-Editing/assets/image63454.png",
+          "widthPercent": 94,
+          "maxWidthDp": 760,
+          "contentScale": "fit",
+          "cornerRadiusDp": 20,
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0GX372L91"
+        },
+        {
+          "type": "button",
+          "enabled": true,
+          "text": "DOWNLOAD\nCapCut Video Editor",
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "marginDp": 12,
+          "backgroundColor": "#FFD400",
+          "textColor": "#000000",
+          "textSizeSp": 18,
+          "cornerRadiusDp": 16,
+          "gravity": "center",
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0GX372L91"
+        },
+        {
+          "type": "countdown",
+          "enabled": true,
+          "seconds": 20,
+          "style": "circle",
+          "position": "topRight",
+          "autoCloseAtZero": true
+        }
+      ]
+    },
+    {
+      "id": "capcut_video_02",
+      "enabled": true,
+      "elements": [
+        {
+          "type": "video",
+          "enabled": true,
+          "src": "https://boktoss2345.github.io/Cap-Video-Editor-Make-Video-Maker-Editing/assets/videos12456.mp4",
+          "autoplay": true,
+          "loop": true,
+          "muted": true,
+          "controls": false,
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "contentScale": "fit",
+          "cornerRadiusDp": 24,
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "button",
+          "enabled": true,
+          "text": "DOWNLOAD\nCapcut Without Ads",
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "marginDp": 12,
+          "backgroundColor": "#FFD400",
+          "textColor": "#000000",
+          "textSizeSp": 18,
+          "cornerRadiusDp": 16,
+          "gravity": "center",
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "countdown",
+          "enabled": true,
+          "seconds": 20,
+          "style": "circle",
+          "position": "topRight",
+          "autoCloseAtZero": true
+        }
+      ]
+    },
+    {
+      "id": "capcut_image_03",
+      "enabled": true,
+      "elements": [
+        {
+          "type": "image",
+          "enabled": true,
+          "src": "https://boktoss2345.github.io/Cap-Video-Editor-Make-Video-Maker-Editing/assets/images5646.png",
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "contentScale": "fit",
+          "cornerRadiusDp": 24,
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "button",
+          "enabled": true,
+          "text": "DOWNLOAD\nCapcut Without Ads",
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "marginDp": 12,
+          "backgroundColor": "#FFD400",
+          "textColor": "#000000",
+          "textSizeSp": 18,
+          "cornerRadiusDp": 16,
+          "gravity": "center",
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "countdown",
+          "enabled": true,
+          "seconds": 20,
+          "style": "circle",
+          "position": "topRight",
+          "autoCloseAtZero": true
+        }
+      ]
+    }
+  ]
+}
