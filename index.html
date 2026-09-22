@@ -1,122 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#000000">
-<title>Subway Surfers</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0,
+      maximum-scale=1.0, user-scalable=no">
+
+<title>Game</title>
+
 <style>
-  *, *::before, *::after {
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-  }
-  html, body {
-    margin: 0; padding: 0;
-    width: 100%; height: 100%;
-    background: #000000;
-    overflow: hidden;
-  }
-  body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    color: #ffffff;
-    text-align: center;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-             env(safe-area-inset-bottom) env(safe-area-inset-left);
-  }
-  .wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(16px, 3vmin, 40px);
+}
+
+html, body {
     width: 100%;
-    max-width: 90vw;
-  }
-  .title {
-    margin: 0;
-    font-size: clamp(18px, 3.5vmin, 44px);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    opacity: 0.85;
-  }
-  #run {
-    appearance: none;
-    -webkit-appearance: none;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+}
+
+#game {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
     border: 0;
-    margin: 0;
-    cursor: pointer;
-    font-family: inherit;
-    min-width: clamp(200px, 42vmin, 520px);
-    min-height: clamp(80px, 18vmin, 200px);
-    padding: clamp(16px, 3vmin, 40px) clamp(32px, 7vmin, 96px);
-    border-radius: 999px;
-    font-size: clamp(28px, 6vmin, 88px);
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #04140d;
-    background: linear-gradient(180deg, #8df7c8 0%, #23cc8c 100%);
-    box-shadow: 0 10px 0 #0f7d55, 0 22px 40px rgba(35, 204, 140, 0.35);
-    transition: transform 90ms ease, box-shadow 90ms ease, filter 90ms ease;
-    outline: none;
-    user-select: none;
-  }
-  #run:active {
-    transform: translateY(6px);
-    box-shadow: 0 4px 0 #0f7d55, 0 10px 22px rgba(35, 204, 140, 0.3);
-  }
-  #run:focus-visible, #run:focus {
-    outline: 4px solid #ffffff;
-    outline-offset: 6px;
-    filter: brightness(1.08);
-  }
-  @media (prefers-reduced-motion: reduce) {
-    #run { transition: none; }
-  }
+    display: block;
+}
 </style>
 </head>
+
 <body>
-  <main class="wrap">
-    <h1 class="title">Subway Surfers</h1>
-    <button id="run" type="button" autofocus>RUN</button>
-  </main>
 
-<script>
-  (function () {
-    "use strict";
+<iframe
+    id="game"
+    src="https://www.madkidgames.com/full/subway-surfers"
+    frameborder="0"
+    scrolling="no"
+    allow="autoplay; fullscreen; gamepad"
+    allowfullscreen>
+</iframe>
 
-    var TARGET = "https://poki.com/fr/g/subway-surfers#utm_source=redirect-en-fr";
-    var runButton = document.getElementById("run");
-    var launched = false;
-
-    function launch() {
-      if (launched) return;
-      launched = true;
-
-      // Top-level navigation of the CURRENT WebView.
-      // This replaces the current page inside the app.
-      // No iframe, no window.open(), no target="_blank", no external browser.
-      window.location.href = TARGET;
-    }
-
-    runButton.addEventListener("click", launch);
-
-    document.addEventListener("keydown", function (event) {
-      var k = event.key;
-      if (k === "Enter" || k === "Select" || k === "Accept" || event.keyCode === 13) {
-        event.preventDefault();
-        launch();
-      }
-    }, false);
-
-    window.addEventListener("load", function () {
-      try { runButton.focus(); } catch (e) {}
-    });
-  })();
-</script>
 </body>
 </html>
