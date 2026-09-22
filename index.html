@@ -1,74 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-<title>Run Game</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Subway Surfers</title>
 <style>
-* {
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
-}
+    -webkit-tap-highlight-color: transparent;
+  }
 
-html, body {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
-    margin: 0;
-    background: #111;
+    background: #000000;
     overflow: hidden;
-}
+  }
 
-body {
+  body {
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
-}
+    justify-content: center;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    /* keeps content clear of notches / TV overscan */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right)
+             env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
 
-#run {
-    width: 240px;
-    height: 85px;
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(16px, 3vmin, 40px);
+    width: 100%;
+    max-width: 90vw;
+  }
+
+  .title {
+    margin: 0;
+    font-size: clamp(18px, 3.5vmin, 44px);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  #run {
+    /* reset */
+    appearance: none;
+    -webkit-appearance: none;
     border: 0;
-    border-radius: 20px;
-    background: white;
-    color: black;
-    font-size: 30px;
-    font-weight: bold;
+    margin: 0;
     cursor: pointer;
-}
+    font-family: inherit;
 
-#run:focus {
-    outline: 5px solid #aaa;
-}
+    /* responsive size: scales on phone, tablet and TV */
+    min-width: clamp(200px, 42vmin, 520px);
+    min-height: clamp(80px, 18vmin, 200px);
+    padding: clamp(16px, 3vmin, 40px) clamp(32px, 7vmin, 96px);
+
+    border-radius: 999px;
+    font-size: clamp(28px, 6vmin, 88px);
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    color: #04140d;
+    background: linear-gradient(180deg, #8df7c8 0%, #23cc8c 100%);
+    box-shadow:
+      0 10px 0 #0f7d55,
+      0 22px 40px rgba(35, 204, 140, 0.35);
+
+    transition: transform 90ms ease, box-shadow 90ms ease, filter 90ms ease;
+    outline: none;
+    user-select: none;
+  }
+
+  #run:active {
+    transform: translateY(6px);
+    box-shadow:
+      0 4px 0 #0f7d55,
+      0 10px 22px rgba(35, 204, 140, 0.3);
+  }
+
+  /* TV remote / keyboard focus ring */
+  #run:focus-visible,
+  #run:focus {
+    outline: 4px solid #ffffff;
+    outline-offset: 6px;
+    filter: brightness(1.08);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #run {
+      transition: none;
+    }
+  }
 </style>
 </head>
-
 <body>
-
-<button id="run" autofocus>▶ RUN</button>
+  <main class="wrap">
+    <h1 class="title">Subway Surfers</h1>
+    <button id="run" type="button" autofocus>RUN</button>
+  </main>
 
 <script>
-const GAME =
-"https://poki.com/fr/g/subway-surfers#utm_source=redirect-en-fr";
+  (function () {
+    "use strict";
 
-function openGame() {
-    try {
-        window.top.location.href = GAME;
-    } catch (e) {
-        window.location.href = GAME;
+    var TARGET = "https://poki.com/fr/g/subway-surfers#utm_source=redirect-en-fr";
+    var runButton = document.getElementById("run");
+    var launched = false;
+
+    function launch() {
+      if (launched) return;   // prevent double navigation
+      launched = true;
+
+      // Navigate the CURRENT page/WebView itself.
+      // No iframe, no window.open(), no new tab, no external browser intent.
+      try {
+        window.location.href = TARGET;
+        // Equivalent alternative:
+        // window.location.replace(TARGET);
+      } catch (e) {
+        // Fallback: also a same-context top-level navigation
+        window.location.replace(TARGET);
+      }
     }
-}
 
-document.getElementById("run").addEventListener("click", openGame);
+    // Click / touch / tap / Enter-Space on the focused button
+    runButton.addEventListener("click", launch);
 
-document.addEventListener("keydown", function(e) {
-    if (e.key === "Enter" || e.keyCode === 13 || e.keyCode === 23) {
-        openGame();
-    }
-});
+    // TV remote & keyboard: ENTER (and OK/select keys reported as Enter)
+    document.addEventListener("keydown", function (event) {
+      var key = event.key;
+      if (key === "Enter" || key === "Select" || key === "Accept" || event.keyCode === 13) {
+        event.preventDefault();
+        launch();
+      }
+    }, false);
+
+    // Make sure the button is focused on load (D-pad friendly)
+    window.addEventListener("load", function () {
+      try { runButton.focus(); } catch (e) {}
+    });
+  })();
 </script>
-
 </body>
 </html>
