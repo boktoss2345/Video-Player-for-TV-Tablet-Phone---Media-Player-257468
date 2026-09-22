@@ -1,1 +1,163 @@
-xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+{
+  "schemaVersion": 1,
+  "enabled": true,
+  "initialDelaySeconds": 5,
+  "showDurationSeconds": 20,
+  "repeatEverySeconds": 10,
+
+  "countdown": {
+    "enabled": true,
+    "seconds": 20,
+    "autoCloseAtZero": true
+  },
+
+  "behavior": {
+    "selectionMode": "sequence",
+    "refreshConfigBeforeShow": true
+  },
+
+  "overlay": {
+    "enabled": true,
+    "scrimColor": "#D1000000",
+    "dismissOnOutsideTap": false,
+    "gravity": "center",
+    "paddingDp": 0
+  },
+
+  "ads": [
+    {
+      "id": "video_7476",
+      "enabled": true,
+      "elements": [
+        {
+          "type": "video",
+          "enabled": true,
+          "src": "https://boktoss2345.github.io/Video-Player-for-TV-Tablet-Phone---Media-Player-257468/assets/video7476.mp4",
+          "autoplay": true,
+          "loop": true,
+          "muted": true,
+          "controls": false,
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "contentScale": "fit",
+          "cornerRadiusDp": 24,
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "button",
+          "enabled": true,
+          "text": "DOWNLOAD",
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "marginDp": 12,
+          "backgroundColor": "#FFD400",
+          "textColor": "#000000",
+          "textSizeSp": 18,
+          "cornerRadiusDp": 16,
+          "gravity": "center",
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "countdown",
+          "enabled": true,
+          "seconds": 20,
+          "style": "circle",
+          "position": "topRight",
+          "autoCloseAtZero": true
+        }
+      ]
+    },
+
+    {
+      "id": "video_65845",
+      "enabled": true,
+      "elements": [
+        {
+          "type": "video",
+          "enabled": true,
+          "src": "https://boktoss2345.github.io/Video-Player-for-TV-Tablet-Phone---Media-Player-257468/assets/video65845.mp4",
+          "autoplay": true,
+          "loop": true,
+          "muted": true,
+          "controls": false,
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "contentScale": "fit",
+          "cornerRadiusDp": 24,
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "button",
+          "enabled": true,
+          "text": "DOWNLOAD",
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "marginDp": 12,
+          "backgroundColor": "#FFD400",
+          "textColor": "#000000",
+          "textSizeSp": 18,
+          "cornerRadiusDp": 16,
+          "gravity": "center",
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "countdown",
+          "enabled": true,
+          "seconds": 20,
+          "style": "circle",
+          "position": "topRight",
+          "autoCloseAtZero": true
+        }
+      ]
+    },
+
+    {
+      "id": "video_74846",
+      "enabled": true,
+      "elements": [
+        {
+          "type": "video",
+          "enabled": true,
+          "src": "https://boktoss2345.github.io/Video-Player-for-TV-Tablet-Phone---Media-Player-257468/assets/video74846.mp4",
+          "autoplay": true,
+          "loop": true,
+          "muted": true,
+          "controls": false,
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "contentScale": "fit",
+          "cornerRadiusDp": 24,
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "button",
+          "enabled": true,
+          "text": "DOWNLOAD",
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "marginDp": 12,
+          "backgroundColor": "#FFD400",
+          "textColor": "#000000",
+          "textSizeSp": 18,
+          "cornerRadiusDp": 16,
+          "gravity": "center",
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0H7SBR4MW"
+        },
+        {
+          "type": "countdown",
+          "enabled": true,
+          "seconds": 20,
+          "style": "circle",
+          "position": "topRight",
+          "autoCloseAtZero": true
+        }
+      ]
+    }
+  ]
+}
