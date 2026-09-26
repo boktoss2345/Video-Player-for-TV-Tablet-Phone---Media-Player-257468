@@ -6,7 +6,7 @@
   "repeatEverySeconds": 10,
 
   "countdown": {
-    "enabled": true,
+    "enabled": false,
     "seconds": 20,
     "autoCloseAtZero": true
   },
@@ -58,14 +58,6 @@
           "gravity": "center",
           "clickable": true,
           "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0GHS82Z1S"
-        },
-        {
-          "type": "countdown",
-          "enabled": true,
-          "seconds": 20,
-          "style": "circle",
-          "position": "topRight",
-          "autoCloseAtZero": true
         }
       ]
     }
