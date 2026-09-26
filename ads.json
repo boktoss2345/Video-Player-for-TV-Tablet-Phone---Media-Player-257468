@@ -42,7 +42,7 @@
           "contentScale": "fit",
           "cornerRadiusDp": 24,
           "clickable": true,
-          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0GHS82Z1S"
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0FSTNPJT6"
         },
         {
           "type": "button",
@@ -57,7 +57,7 @@
           "cornerRadiusDp": 16,
           "gravity": "center",
           "clickable": true,
-          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0GHS82Z1S"
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0FSTNPJT6"
         }
       ]
     }
