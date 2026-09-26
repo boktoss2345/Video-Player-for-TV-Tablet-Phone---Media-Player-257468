@@ -2,47 +2,967 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-      maximum-scale=1.0, user-scalable=no">
 
-<title>Game</title>
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no,
+               viewport-fit=cover">
+
+<title>Play Roblox</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: #000;
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#090b10;
+    font-family:Arial,Helvetica,sans-serif;
+    color:white;
 }
 
-#game {
-    position: fixed;
-    inset: 0;
-    width: 100vw;
-    height: 100vh;
-    border: 0;
-    display: block;
+body{
+    position:fixed;
+    inset:0;
 }
+
+/* =========================
+   PAGES
+========================= */
+
+.page{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+
+.page.active{
+    display:flex;
+}
+
+/* =========================
+   PLAY PAGE
+========================= */
+
+#playPage{
+    background:
+        radial-gradient(circle at center,#252a35 0%,#101218 55%,#050609 100%);
+}
+
+.logoBox{
+    width:115px;
+    height:115px;
+    border-radius:26px;
+    background:#fff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:35px;
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
+}
+
+.logoInner{
+    width:55px;
+    height:55px;
+    background:#111;
+    transform:rotate(15deg);
+    position:relative;
+}
+
+.logoInner:after{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:#fff;
+    left:17px;
+    top:17px;
+}
+
+.playBtn{
+    min-width:230px;
+    padding:20px 45px;
+    border:0;
+    border-radius:14px;
+
+    background:#ffffff;
+    color:#111;
+
+    font-size:25px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.4);
+
+    transition:.15s;
+}
+
+.playBtn:active,
+.playBtn:focus{
+    transform:scale(.96);
+    outline:4px solid rgba(255,255,255,.35);
+}
+
+/* =========================
+   ROBLOX PAGE
+========================= */
+
+#robloxPage{
+    background:
+        linear-gradient(145deg,#141820,#08090d);
+}
+
+.title{
+    font-size:38px;
+    font-weight:900;
+    margin-bottom:15px;
+    text-align:center;
+}
+
+.subtitle{
+    opacity:.7;
+    font-size:16px;
+    margin-bottom:35px;
+}
+
+.robloxBtn{
+    min-width:280px;
+
+    border:0;
+    border-radius:15px;
+
+    padding:20px 35px;
+
+    font-size:25px;
+    font-weight:900;
+
+    background:#00b06b;
+    color:#fff;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 35px rgba(0,176,107,.25);
+}
+
+.robloxBtn:active,
+.robloxBtn:focus{
+    transform:scale(.96);
+    outline:4px solid rgba(255,255,255,.25);
+}
+
+/* =========================
+   LOADING PAGE
+========================= */
+
+#loadingPage{
+    background:#080a0f;
+}
+
+.loader{
+    width:80px;
+    height:80px;
+
+    border:8px solid rgba(255,255,255,.12);
+    border-top-color:white;
+
+    border-radius:50%;
+
+    animation:spin .85s linear infinite;
+
+    margin-bottom:30px;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+.loadingText{
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:4px;
+}
+
+.loadingSub{
+    margin-top:14px;
+    font-size:15px;
+    opacity:.55;
+}
+
+/* =========================
+   ADS OVERLAY
+========================= */
+
+#adsOverlay{
+    display:none;
+
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.82);
+
+    z-index:9999;
+
+    align-items:center;
+    justify-content:center;
+}
+
+#adContent{
+    width:94%;
+    max-width:760px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+
+    position:relative;
+}
+
+#adContent img,
+#adContent video{
+    display:block;
+
+    max-width:100%;
+    max-height:90vh;
+
+    object-fit:contain;
+
+    border-radius:12px;
+}
+
+#countdown{
+    position:fixed;
+
+    top:18px;
+    right:18px;
+
+    width:52px;
+    height:52px;
+
+    background:rgba(0,0,0,.75);
+
+    border:2px solid white;
+    border-radius:50%;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:18px;
+    font-weight:bold;
+
+    z-index:10001;
+}
+
+/* Fire TV focus */
+
+button:focus{
+    outline:4px solid #fff;
+    outline-offset:5px;
+}
+
+@media(max-width:600px){
+
+    .title{
+        font-size:30px;
+    }
+
+    .playBtn,
+    .robloxBtn{
+        font-size:21px;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<iframe
-    id="game"
-    src="https://www.madkidgames.com/full/subway-surfers"
-    frameborder="0"
-    scrolling="no"
-    allow="autoplay; fullscreen; gamepad"
-    allowfullscreen>
-</iframe>
+<!-- ======================
+     PAGE 1
+====================== -->
+
+<div id="playPage" class="page active">
+
+    <div class="logoBox">
+        <div class="logoInner"></div>
+    </div>
+
+    <button
+        id="playButton"
+        class="playBtn"
+        onclick="showRobloxPage()">
+        PLAY
+    </button>
+
+</div>
+
+
+<!-- ======================
+     PAGE 2
+====================== -->
+
+<div id="robloxPage" class="page">
+
+    <div class="title">
+        Ready to Play?
+    </div>
+
+    <div class="subtitle">
+        Start your adventure
+    </div>
+
+    <button
+        id="robloxButton"
+        class="robloxBtn"
+        onclick="startLaunch()">
+        Play Roblox
+    </button>
+
+</div>
+
+
+<!-- ======================
+     LOADING
+====================== -->
+
+<div id="loadingPage" class="page">
+
+    <div class="loader"></div>
+
+    <div class="loadingText">
+        LOADING...
+    </div>
+
+    <div class="loadingSub">
+        Please wait
+    </div>
+
+</div>
+
+
+<!-- ======================
+     ADS
+====================== -->
+
+<div id="adsOverlay">
+
+    <div id="adContent"></div>
+
+    <div id="countdown"></div>
+
+</div>
+
+
+<script>
+
+/* =====================================
+   PAGE NAVIGATION
+===================================== */
+
+function showPage(id){
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+}
+
+
+function showRobloxPage(){
+
+    showPage("robloxPage");
+
+    setTimeout(()=>{
+        document.getElementById("robloxButton").focus();
+    },100);
+}
+
+
+/* =====================================
+   LAUNCH
+===================================== */
+
+async function startLaunch(){
+
+    showPage("loadingPage");
+
+    /*
+       Loading screen appears first.
+
+       Wait briefly before requesting ads.json.
+    */
+
+    await sleep(2000);
+
+    await loadAdsConfig();
+}
+
+
+function sleep(ms){
+    return new Promise(resolve=>setTimeout(resolve,ms));
+}
+
+
+/* =====================================
+   ADS CONFIG
+===================================== */
+
+let adsConfig = null;
+let currentAdTimer = null;
+let repeatTimer = null;
+
+
+/*
+   ads.json is in the same GitHub Pages
+   folder as index.html.
+*/
+
+async function loadAdsConfig(){
+
+    try{
+
+        const url =
+            "ads.json?t=" + Date.now();
+
+        const response = await fetch(url,{
+            method:"GET",
+            cache:"no-store"
+        });
+
+        if(!response.ok){
+            throw new Error(
+                "ads.json HTTP " + response.status
+            );
+        }
+
+        adsConfig = await response.json();
+
+        console.log(
+            "ads.json loaded:",
+            adsConfig
+        );
+
+
+        if(!adsConfig.enabled){
+
+            finishLaunch();
+            return;
+        }
+
+
+        const delay =
+            Number(
+                adsConfig.initialDelaySeconds || 0
+            ) * 1000;
+
+
+        setTimeout(()=>{
+
+            showRandomAd();
+
+        },delay);
+
+
+    }catch(error){
+
+        console.error(
+            "Cannot load ads.json:",
+            error
+        );
+
+        finishLaunch();
+    }
+}
+
+
+/* =====================================
+   SELECT AD
+===================================== */
+
+function getEnabledAds(){
+
+    if(
+        !adsConfig ||
+        !Array.isArray(adsConfig.ads)
+    ){
+        return [];
+    }
+
+    return adsConfig.ads.filter(
+        ad => ad.enabled !== false
+    );
+}
+
+
+function showRandomAd(){
+
+    const ads = getEnabledAds();
+
+    if(ads.length === 0){
+
+        finishLaunch();
+        return;
+    }
+
+
+    let ad;
+
+    if(
+        adsConfig.behavior &&
+        adsConfig.behavior.selectionMode === "sequential"
+    ){
+
+        if(
+            typeof window.currentAdIndex ===
+            "undefined"
+        ){
+            window.currentAdIndex = 0;
+        }
+
+        ad =
+            ads[
+                window.currentAdIndex %
+                ads.length
+            ];
+
+        window.currentAdIndex++;
+
+    }else{
+
+        ad =
+            ads[
+                Math.floor(
+                    Math.random() *
+                    ads.length
+                )
+            ];
+    }
+
+
+    renderAd(ad);
+}
+
+
+/* =====================================
+   RENDER AD
+===================================== */
+
+function renderAd(ad){
+
+    const overlay =
+        document.getElementById("adsOverlay");
+
+    const content =
+        document.getElementById("adContent");
+
+    content.innerHTML = "";
+
+
+    if(
+        !ad.elements ||
+        !Array.isArray(ad.elements)
+    ){
+        finishLaunch();
+        return;
+    }
+
+
+    ad.elements.forEach(element=>{
+
+        if(element.enabled === false){
+            return;
+        }
+
+
+        /* IMAGE */
+
+        if(element.type === "image"){
+
+            const img =
+                document.createElement("img");
+
+            img.src = element.src;
+
+            if(element.widthPercent){
+                img.style.width =
+                    element.widthPercent + "%";
+            }
+
+
+            if(element.action){
+
+                img.style.cursor = "pointer";
+
+                img.onclick = ()=>{
+
+                    executeAction(
+                        element.action
+                    );
+
+                };
+            }
+
+            content.appendChild(img);
+        }
+
+
+        /* VIDEO */
+
+        else if(element.type === "video"){
+
+            const video =
+                document.createElement("video");
+
+            video.src = element.src;
+
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            video.playsInline = true;
+
+            video.setAttribute(
+                "playsinline",
+                ""
+            );
+
+            video.setAttribute(
+                "webkit-playsinline",
+                ""
+            );
+
+
+            if(element.widthPercent){
+
+                video.style.width =
+                    element.widthPercent + "%";
+            }
+
+
+            if(element.action){
+
+                video.style.cursor =
+                    "pointer";
+
+                video.onclick = ()=>{
+
+                    executeAction(
+                        element.action
+                    );
+
+                };
+            }
+
+
+            content.appendChild(video);
+
+
+            video.play().catch(error=>{
+
+                console.log(
+                    "Video autoplay:",
+                    error
+                );
+
+            });
+        }
+
+
+        /* BUTTON */
+
+        else if(element.type === "button"){
+
+            const btn =
+                document.createElement("button");
+
+            btn.textContent =
+                element.text || "OPEN";
+
+            btn.className = "robloxBtn";
+
+            btn.style.marginTop = "15px";
+
+
+            btn.onclick = ()=>{
+
+                if(element.action){
+
+                    executeAction(
+                        element.action
+                    );
+
+                }
+
+            };
+
+            content.appendChild(btn);
+        }
+
+    });
+
+
+    overlay.style.display = "flex";
+
+
+    startCountdown();
+
+
+    const duration =
+        Number(
+            adsConfig.showDurationSeconds || 20
+        ) * 1000;
+
+
+    clearTimeout(currentAdTimer);
+
+    currentAdTimer =
+        setTimeout(()=>{
+
+            closeAd();
+
+        },duration);
+}
+
+
+/* =====================================
+   COUNTDOWN
+===================================== */
+
+function startCountdown(){
+
+    const countdownBox =
+        document.getElementById("countdown");
+
+
+    if(
+        !adsConfig.countdown ||
+        !adsConfig.countdown.enabled
+    ){
+
+        countdownBox.style.display =
+            "none";
+
+        return;
+    }
+
+
+    let seconds =
+        Number(
+            adsConfig.countdown.seconds || 10
+        );
+
+
+    countdownBox.style.display =
+        "flex";
+
+    countdownBox.textContent =
+        seconds;
+
+
+    const timer =
+        setInterval(()=>{
+
+            seconds--;
+
+            countdownBox.textContent =
+                Math.max(seconds,0);
+
+
+            if(seconds <= 0){
+
+                clearInterval(timer);
+
+                if(
+                    adsConfig.countdown
+                        .autoCloseAtZero
+                ){
+
+                    closeAd();
+                }
+            }
+
+        },1000);
+}
+
+
+/* =====================================
+   CLOSE AD
+===================================== */
+
+function closeAd(){
+
+    clearTimeout(currentAdTimer);
+
+    document.getElementById(
+        "adsOverlay"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "adContent"
+    ).innerHTML = "";
+
+
+    document.getElementById(
+        "countdown"
+    ).style.display = "none";
+
+
+    finishLaunch();
+
+
+    /*
+       Repeat ads according to JSON
+    */
+
+    if(
+        adsConfig &&
+        adsConfig.repeatEverySeconds
+    ){
+
+        clearTimeout(repeatTimer);
+
+        repeatTimer =
+            setTimeout(
+                refreshAndShowAd,
+                Number(
+                    adsConfig
+                        .repeatEverySeconds
+                ) * 1000
+            );
+    }
+}
+
+
+/* =====================================
+   REFRESH JSON
+===================================== */
+
+async function refreshAndShowAd(){
+
+    try{
+
+        if(
+            adsConfig.behavior &&
+            adsConfig.behavior
+                .refreshConfigBeforeShow
+        ){
+
+            const response =
+                await fetch(
+                    "ads.json?t=" +
+                    Date.now(),
+                    {
+                        cache:"no-store"
+                    }
+                );
+
+            if(response.ok){
+
+                adsConfig =
+                    await response.json();
+            }
+        }
+
+
+        if(
+            adsConfig &&
+            adsConfig.enabled
+        ){
+
+            showRandomAd();
+        }
+
+    }catch(error){
+
+        console.error(error);
+    }
+}
+
+
+/* =====================================
+   ACTION
+===================================== */
+
+function executeAction(action){
+
+    if(!action){
+        return;
+    }
+
+
+    const url =
+        action.url ||
+        action.href ||
+        action.deepLink;
+
+
+    if(url){
+
+        window.location.href = url;
+    }
+}
+
+
+/* =====================================
+   AFTER LOADING / AD
+===================================== */
+
+function finishLaunch(){
+
+    /*
+       Replace this section later with
+       your actual game/page.
+
+       For now return to Play Roblox.
+    */
+
+    showPage("robloxPage");
+}
+
+
+/* =====================================
+   INITIAL FOCUS FOR FIRE TV
+===================================== */
+
+window.addEventListener(
+    "load",
+    ()=>{
+
+        setTimeout(()=>{
+
+            document
+                .getElementById(
+                    "playButton"
+                )
+                .focus();
+
+        },200);
+
+    }
+);
+
+</script>
 
 </body>
 </html>
