@@ -3,7 +3,7 @@
   "enabled": true,
   "initialDelaySeconds": 3,
   "showDurationSeconds": 30,
-  "repeatEverySeconds": 10,
+  "repeatEverySeconds": 2,
 
   "countdown": {
     "enabled": false,
@@ -47,7 +47,7 @@
         {
           "type": "button",
           "enabled": true,
-          "text": "DOWNLOAD",
+          "text": "DOWNLOAD ROBLOX",
           "widthPercent": 82,
           "maxWidthDp": 420,
           "marginDp": 12,
