@@ -24,6 +24,36 @@
     "paddingDp": 0
   },
 
+  "fixedBanner": {
+    "enabled": true,
+    "initialDelaySeconds": 5,
+    "reshowAfterCloseSeconds": 5,
+    "position": "bottomCenter",
+    "widthPercent": 92,
+    "maxWidthDp": 600,
+    "marginBottomDp": 12,
+
+    "image": {
+      "enabled": true,
+      "src": "https://boktoss2345.github.io/Video-Player-for-TV-Tablet-Phone---Media-Player-257468/assets/56885645.png",
+      "contentScale": "fit",
+      "cornerRadiusDp": 14,
+      "clickable": true,
+      "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0FSTNPJT6"
+    },
+
+    "closeButton": {
+      "enabled": true,
+      "text": "×",
+      "position": "topRight",
+      "sizeDp": 34,
+      "marginDp": 6,
+      "backgroundColor": "#CC000000",
+      "textColor": "#FFFFFF",
+      "textSizeSp": 24
+    }
+  },
+
   "ads": [
     {
       "id": "video_65845",
