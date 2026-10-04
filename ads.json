@@ -30,6 +30,21 @@
       "enabled": true,
       "elements": [
         {
+          "type": "button",
+          "enabled": true,
+          "text": "Remove Ads And Download",
+          "widthPercent": 82,
+          "maxWidthDp": 420,
+          "marginDp": 12,
+          "backgroundColor": "#FFFFFF",
+          "textColor": "#000000",
+          "textSizeSp": 18,
+          "cornerRadiusDp": 16,
+          "gravity": "center",
+          "clickable": true,
+          "url": "amzn://apps/android?initiatePurchaseFlow=true&asin=B0FSTNPJT6"
+        },
+        {
           "type": "video",
           "enabled": true,
           "src": "https://boktoss2345.github.io/Video-Player-for-TV-Tablet-Phone---Media-Player-257468/assets/video65845.mp4",
